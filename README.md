@@ -29,7 +29,8 @@ npm install
 <p>4. copy file .env.development</p>
 
 ```
-Linux : cp .env.development .env | Windows :  copy .env.development .env
+Linux   : cp .env.development .env
+Windows : copy .env.development .env
 ```
 
 <p>5. setup env</p>
@@ -41,7 +42,8 @@ DATABASE_URL="mysql://{username}:{password}@localhost:3306/{nama_database}"
 <p>6. example env</p>
 
 ```
-PORT=3000 DATABASE_URL="mysql://root:root@localhost:3306/backend_mysql"
+PORT=3000
+DATABASE_URL="mysql://root:root@localhost:3306/backend_mysql"
 ```
 
 <p>7. Migrate Database</p>
