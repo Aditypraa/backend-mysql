@@ -12,7 +12,25 @@ const getAllOrders = async (req, res) => {
         },
       },
     });
-    res.json({ message: "Order List", data: orders });
+
+    // Format respons sesuai yang diinginkan
+    const responseData = orders.map((order) => ({
+      id: order.id,
+      products: order.products.map((item) => ({
+        id: item.product.id,
+        name: item.product.name,
+        price: item.price,
+        quantity: item.quantity,
+        stock: item.product.stock,
+        sold: item.product.sold,
+        created_at: item.product.createdAt,
+        updated_at: item.product.updatedAt,
+      })),
+      created_at: order.createdAt,
+      updated_at: order.updatedAt,
+    }));
+
+    res.json({ message: "Orders List", data: responseData });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
